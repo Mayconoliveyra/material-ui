@@ -5,6 +5,7 @@ import { useDrawerContext } from '../Shared/Contexts/DrawerContext';
 
 import { Home } from '../Pages/Home';
 import { PersonListing } from '../Pages/PersonListing';
+import { PersonForm } from '../Pages/PersonListing/Form';
 
 export const AppRoutes = () => {
   const { setDrawerOptions } = useDrawerContext();
@@ -28,7 +29,7 @@ export const AppRoutes = () => {
       <Route path="/home" element={<Home />} />
 
       <Route path="/pessoas" element={<PersonListing />} />
-      <Route path="/pessoas/detalhe/:id" element={<p>detalhes</p>} />
+      <Route path="/pessoas/detalhe/:id" element={<PersonForm />} />
 
       <Route path="*" element={<Navigate to={'/home'} />} />
     </Routes>

@@ -27,6 +27,9 @@ import {
   Icon,
 } from '@mui/material';
 
+const prefixNavigate = '/pessoas';
+const prefixNew: 'nova' | 'novo' = 'nova';
+
 export const PersonListing: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
@@ -80,14 +83,15 @@ export const PersonListing: React.FC = () => {
   return (
     <LayoutBasePag
       title="Listagem de pessoas"
-      BarraFerramentas={
+      toolbar={
         <ListingTools
-          textBtnNew="Nova"
+          textBtnNew={prefixNew}
           showInputSearch
           textSearch={busca}
           onChangeInputSearch={(text) =>
             setSearchParams({ busca: text, pagina: '1' }, { replace: true })
           }
+          onClickBtnNew={() => navigate(`${prefixNavigate}/detalhe/${prefixNew}`)}
         />
       }
     >
@@ -117,7 +121,7 @@ export const PersonListing: React.FC = () => {
                         <Icon fontSize="small">delete</Icon>
                       </IconButton>
                       <IconButton
-                        onClick={() => navigate(`/pessoas/detalhe/${row.id}`)}
+                        onClick={() => navigate(`$${prefixNavigate}/detalhe/${row.id}`)}
                         size="small"
                         color="warning"
                       >

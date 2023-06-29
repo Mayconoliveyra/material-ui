@@ -6,15 +6,11 @@ import { Box, Typography, useTheme, IconButton, Icon, useMediaQuery, Theme } fro
 
 type LayoutBasePagProps = {
   title: string;
-  BarraFerramentas?: React.ReactNode;
+  toolbar?: React.ReactNode;
   children: React.ReactNode;
 };
 
-export const LayoutBasePag: React.FC<LayoutBasePagProps> = ({
-  title,
-  BarraFerramentas,
-  children,
-}) => {
+export const LayoutBasePag: React.FC<LayoutBasePagProps> = ({ title, toolbar, children }) => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
@@ -44,7 +40,7 @@ export const LayoutBasePag: React.FC<LayoutBasePagProps> = ({
         </Typography>
       </Box>
 
-      {BarraFerramentas && <Box>{BarraFerramentas}</Box>}
+      {toolbar && <Box>{toolbar}</Box>}
 
       <Box flex={1} overflow="auto">
         {children}
