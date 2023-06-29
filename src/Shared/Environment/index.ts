@@ -3,7 +3,7 @@ export const Environment = {
     (LIMITE DE LINHAS)
     Define a quantidade de linhas a ser carregada por padrão nas listagens.
    */
-  LIMIT_LINKY: 10,
+  LIMIT_LINKY: 5,
   /**
    (INPUT DE BUSCA)
    Placeholder exibido nos input

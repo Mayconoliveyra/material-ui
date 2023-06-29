@@ -4,7 +4,7 @@ import { api } from '../Axios-config';
 
 const urlPrefix = '/person';
 
-type PersonProps = {
+export type PersonProps = {
   id: number;
   email: string;
   name: string;
@@ -25,7 +25,7 @@ const getAll = async (page = 1, filter = ''): Promise<ListPersonProps | Error> =
     if (data) {
       return {
         data,
-        totalCount: headers['x-total-count'] || Environment.LIMIT_LINKY,
+        totalCount: Number(headers['x-total-count']),
       };
     }
 
