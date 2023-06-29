@@ -7,7 +7,7 @@ import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 type ListingToolsProps = {
   textSearch?: string;
   showInputSearch?: boolean;
-  handleTextSearch?: (newText: string) => void;
+  onChangeInputSearch?: (newText: string) => void;
 
   textBtnNew?: string;
   showBtnNew?: boolean;
@@ -17,7 +17,7 @@ type ListingToolsProps = {
 export const ListingTools: React.FC<ListingToolsProps> = ({
   textSearch = '',
   showInputSearch = false,
-  handleTextSearch,
+  onChangeInputSearch,
   textBtnNew = 'NOVO',
   showBtnNew = true,
   onClickBtnNew,
@@ -39,7 +39,7 @@ export const ListingTools: React.FC<ListingToolsProps> = ({
         <TextField
           size="small"
           value={textSearch}
-          onChange={(e) => (handleTextSearch ? handleTextSearch(e.target.value) : undefined)}
+          onChange={(e) => onChangeInputSearch?.(e.target.value)}
           placeholder={Environment.SEARCH_INPUT}
         />
       )}

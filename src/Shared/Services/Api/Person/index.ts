@@ -16,7 +16,7 @@ type ListPersonProps = {
   totalCount: number;
 };
 
-const getAll = async ({ page = 1, filter = '' }): Promise<ListPersonProps | Error> => {
+const getAll = async (page = 1, filter = ''): Promise<ListPersonProps | Error> => {
   try {
     const url = `${urlPrefix}?_page=${page}&_limit=${Environment.LIMIT_LINKY}&name_like=${filter}`;
 
