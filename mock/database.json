@@ -1,0 +1,7 @@
+{
+  "person": [
+    { "id": 1, "email": "maria@gmail.com", "name": "Maria", "id_city": 1 },
+    { "id": 2, "email": "eduarda@gmail.com", "name": "Eduarda", "id_city": 1 },
+    { "id": 3, "email": "jonas@gmail.com", "name": "Jonas", "id_city": 3 }
+  ]
+}
