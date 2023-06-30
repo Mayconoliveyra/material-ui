@@ -2,7 +2,7 @@
   "person": [
     {
       "name": "33",
-      "email": "33",
+      "email": "33@gmail.com",
       "id_city": 33,
       "id": 3
     },
@@ -167,6 +167,40 @@
       "email": "4",
       "id_city": 0,
       "id": 32
+    },
+    {
+      "name": "aa",
+      "email": "aa",
+      "id_city": 22,
+      "id": 33
+    },
+    {
+      "name": "vv",
+      "email": "vv",
+      "id_city": 0,
+      "id": 34
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "city": "João Pessoa",
+      "uf": "PB"
+    },
+    {
+      "id": 1,
+      "city": "Cabedelo",
+      "uf": "PB"
+    },
+    {
+      "id": 1,
+      "city": "Rio de Janeiro",
+      "uf": "RJ"
+    },
+    {
+      "id": 1,
+      "city": "São Paulo",
+      "uf": "SP"
     }
   ]
 }

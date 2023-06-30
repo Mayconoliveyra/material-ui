@@ -18,19 +18,16 @@ type DetailToolsProps = {
 
   showBtnNew?: boolean;
   showBtnSave?: boolean;
-  showBtnSaveClose?: boolean;
   showBtnDelete?: boolean;
   showBtnBack?: boolean;
 
   skeletonBtnNew?: boolean;
   skeletonBtnSave?: boolean;
-  skeletonBtnSaveClose?: boolean;
   skeletonBtnDelete?: boolean;
   skeletonBtnBack?: boolean;
 
   onClickBtnNew?: () => void;
   onClickBtnSave?: () => void;
-  onClickBtnSaveClose?: () => void;
   onClickBtnDelete?: () => void;
   onClickBtnBack?: () => void;
 };
@@ -40,19 +37,16 @@ export const DetailTools: React.FC<DetailToolsProps> = ({
 
   showBtnNew = true,
   showBtnSave = true,
-  showBtnSaveClose = false,
   showBtnDelete = true,
   showBtnBack = true,
 
   skeletonBtnNew = false,
   skeletonBtnSave = false,
-  skeletonBtnSaveClose = false,
   skeletonBtnDelete = false,
   skeletonBtnBack = false,
 
   onClickBtnNew,
   onClickBtnSave,
-  onClickBtnSaveClose,
   onClickBtnDelete,
   onClickBtnBack,
 }) => {
@@ -91,27 +85,6 @@ export const DetailTools: React.FC<DetailToolsProps> = ({
         </Button>
       )}
       {skeletonBtnSave && <Skeleton width={109} height={60} />}
-
-      {showBtnSaveClose && !skeletonBtnSaveClose && !mdDown && (
-        <Button
-          color="primary"
-          disableElevation
-          variant="outlined"
-          onClick={onClickBtnSaveClose}
-          startIcon={<Icon>save</Icon>}
-          size={mdDown ? 'small' : 'medium'}
-        >
-          <Typography
-            variant="button"
-            whiteSpace="nowrap"
-            textOverflow="ellipsis"
-            overflow="hidden"
-          >
-            Salvar e fechar
-          </Typography>
-        </Button>
-      )}
-      {skeletonBtnSaveClose && !mdDown && <Skeleton width={180} height={60} />}
 
       {showBtnDelete && !skeletonBtnDelete && (
         <Button
@@ -157,7 +130,7 @@ export const DetailTools: React.FC<DetailToolsProps> = ({
 
       {showBtnBack && !skeletonBtnBack && (
         <>
-          {(showBtnDelete || showBtnNew || showBtnSave || showBtnSaveClose) && (
+          {(showBtnDelete || showBtnNew || showBtnSave) && (
             <Divider variant="middle" orientation="vertical" />
           )}
 

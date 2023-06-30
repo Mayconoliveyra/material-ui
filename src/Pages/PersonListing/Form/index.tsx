@@ -10,7 +10,6 @@ import { PersonService } from '../../../Shared/Services/Api/Person';
 
 import { Formik, FormikProps, Form } from 'formik';
 import * as yup from 'yup';
-import { pt } from 'yup-locale-pt';
 
 import { Box, Paper, LinearProgress, Grid, Typography } from '@mui/material';
 
@@ -28,11 +27,11 @@ const initialValues: InitialValuesProps = {
   email: '',
   id_city: 0,
 };
-yup.setLocale(pt);
-const scheme = yup.object().shape({
+
+const scheme: yup.ObjectSchema<InitialValuesProps> = yup.object().shape({
   name: yup.string().required().label('Nome'),
-  email: yup.string().required().label('E-mail'),
-  id_city: yup.number().required().label('Cidade'),
+  email: yup.string().required().label('E-mail').email(),
+  id_city: yup.number().required().positive().integer().label('Cidade'),
 });
 
 export const PersonForm: React.FC = () => {
@@ -72,6 +71,8 @@ export const PersonForm: React.FC = () => {
           formRef.current?.setValues(result);
         }
       });
+    } else {
+      formRef.current?.resetForm();
     }
   }, [id]);
 
@@ -80,17 +81,14 @@ export const PersonForm: React.FC = () => {
       title={id === prefixNew ? 'Cadastrar pessoa' : name}
       toolbar={
         <DetailTools
-          showBtnSaveClose
           textBtnNew={prefixNew}
           showBtnNew={id !== prefixNew}
           showBtnDelete={id !== prefixNew}
           onClickBtnNew={() => navigate(`${prefixNavigate}/detalhe/${prefixNew}`)}
           onClickBtnSave={() => formRef.current?.submitForm()}
           onClickBtnDelete={() => handleDelete(Number(id))}
-          onClickBtnSaveClose={() => formRef.current?.submitForm()}
           onClickBtnBack={() => navigate(`${prefixNavigate}`)}
           skeletonBtnSave={isLoading}
-          skeletonBtnSaveClose={isLoading}
           skeletonBtnDelete={isLoading}
         />
       }

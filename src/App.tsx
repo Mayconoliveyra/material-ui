@@ -5,6 +5,8 @@ import { MenuSide } from './Shared/Components/MenuSide';
 import { DrawerProvider } from './Shared/Contexts/DrawerContext';
 import { AppThemeProvider } from './Shared/Contexts/ThemeContext';
 
+import './Shared/Components/Forms/FYupTranslation';
+
 import { AppRoutes } from './Routes';
 
 export const App = () => {
