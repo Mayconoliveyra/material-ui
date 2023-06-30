@@ -12,7 +12,7 @@ import { Formik, FormikProps, Form } from 'formik';
 import * as yup from 'yup';
 import { pt } from 'yup-locale-pt';
 
-import { LinearProgress } from '@mui/material';
+import { Box, Paper, LinearProgress, Grid, Typography } from '@mui/material';
 
 const prefixNavigate = '/pessoas';
 const prefixNew: 'nova' | 'novo' = 'nova';
@@ -89,11 +89,12 @@ export const PersonForm: React.FC = () => {
           onClickBtnDelete={() => handleDelete(Number(id))}
           onClickBtnSaveClose={() => formRef.current?.submitForm()}
           onClickBtnBack={() => navigate(`${prefixNavigate}`)}
+          skeletonBtnSave={isLoading}
+          skeletonBtnSaveClose={isLoading}
+          skeletonBtnDelete={isLoading}
         />
       }
     >
-      {isLoading && <LinearProgress variant="indeterminate" />}
-
       <Formik
         innerRef={formRef}
         validationSchema={scheme}
@@ -123,13 +124,36 @@ export const PersonForm: React.FC = () => {
         }}
       >
         {() => {
-          /* {(props: FormikProps<InitialValuesProps>) => {
-            const { touched, errors, isSubmitting } = props; */
           return (
             <Form>
-              <FTextField label="Nome" name="name" placeholder="Nome" />
-              <FTextField label="E-mail" name="email" placeholder="E-mail" />
-              <FTextField label="Cidade" name="id_city" placeholder="Cidade" type="number" />
+              <Box
+                margin={1}
+                display="flex"
+                flexDirection="column"
+                component={Paper}
+                variant="outlined"
+              >
+                <Grid container padding={2} spacing={2}>
+                  {isLoading && (
+                    <Grid item sm={12}>
+                      <LinearProgress variant="indeterminate" />
+                    </Grid>
+                  )}
+                  <Grid item sm={12}>
+                    <Typography variant="h6">Geral</Typography>
+                  </Grid>
+
+                  <Grid item xs={12} md={6} xl={4}>
+                    <FTextField label="Nome" name="name" disabled={isLoading} />
+                  </Grid>
+                  <Grid item xs={12} md={6} xl={4}>
+                    <FTextField label="E-mail" name="email" disabled={isLoading} />
+                  </Grid>
+                  <Grid item xs={12} md={6} xl={4}>
+                    <FTextField label="Cidade" name="id_city" type="number" disabled={isLoading} />
+                  </Grid>
+                </Grid>
+              </Box>
             </Form>
           );
         }}

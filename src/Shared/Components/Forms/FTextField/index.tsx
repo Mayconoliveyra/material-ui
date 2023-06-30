@@ -25,6 +25,7 @@ export const FTextField: React.FC<FTextFieldProps> = ({
           error={!!errors[name] && !!touched[name]}
           helperText={!!touched[name] && errors[name]?.toString()}
           autoComplete={autoComplete}
+          fullWidth
           value={field.value}
         />
       )}
