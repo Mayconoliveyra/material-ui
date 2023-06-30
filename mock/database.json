@@ -1,12 +1,6 @@
 {
   "person": [
     {
-      "id": 2,
-      "email": "jonas@gmail.com",
-      "name": "Jonas",
-      "id_city": 3
-    },
-    {
       "id": 3,
       "email": "jonas@gmail.com",
       "name": "Jonas",

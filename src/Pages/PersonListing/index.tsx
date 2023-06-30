@@ -121,7 +121,7 @@ export const PersonListing: React.FC = () => {
                         <Icon fontSize="small">delete</Icon>
                       </IconButton>
                       <IconButton
-                        onClick={() => navigate(`$${prefixNavigate}/detalhe/${row.id}`)}
+                        onClick={() => navigate(`${prefixNavigate}/detalhe/${row.id}`)}
                         size="small"
                         color="warning"
                       >
