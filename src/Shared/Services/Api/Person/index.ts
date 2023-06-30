@@ -66,7 +66,7 @@ const create = async (newData: Omit<PersonProps, 'id'>): Promise<number | Error>
   }
 };
 
-const updateById = async (id: number, newData: PersonProps): Promise<void | Error> => {
+const updateById = async (id: number, newData: Omit<PersonProps, 'id'>): Promise<void | Error> => {
   try {
     await api.put(`${urlPrefix}/${id}`, newData);
   } catch (error) {

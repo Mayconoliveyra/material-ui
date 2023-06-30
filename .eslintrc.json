@@ -47,6 +47,7 @@
           ["/Layouts/"],
           ["/Services/"],
           ["/Themes/"],
+          ["/axios/", "/formik/", "/yup/", "/yup-locale-pt/", "/moment/", "/react-toastify/"],
           ["/@mui/"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
