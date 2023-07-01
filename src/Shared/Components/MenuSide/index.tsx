@@ -56,9 +56,7 @@ const ListItemLink: React.FC<ListItemLinkProps> = ({ to, icon, label, onClick })
 
 export const MenuSide: React.FC<MenuSideProps> = ({ children }) => {
   const theme = useTheme();
-  const smDown = useMediaQuery(
-    theme.breakpoints.down('sm'),
-  ); /* Se for menos que sm(600px) retorna true; */
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme, themeName } = useAppThemeContext();
 
@@ -70,7 +68,13 @@ export const MenuSide: React.FC<MenuSideProps> = ({ children }) => {
         variant="temporary"
         onClose={toggleDrawerOpen}
       >
-        <Box height="100%" display="flex" flexDirection="column" width={theme.spacing(28)}>
+        <Box
+          aria-description="Menu Side Open"
+          height="100%"
+          display="flex"
+          flexDirection="column"
+          width={theme.spacing(28)}
+        >
           <Toolbar sx={{ height: theme.spacing(10) }}>
             <Box mr={2}>
               <Avatar
@@ -118,7 +122,17 @@ export const MenuSide: React.FC<MenuSideProps> = ({ children }) => {
         </Box>
       </Drawer>
 
-      <Box height="100vh">{children}</Box>
+      <Box
+        aria-description="MenuSide children"
+        display="flex"
+        flexDirection="column"
+        minHeight="100vh"
+        width="100%"
+        bgcolor={theme.palette.background.default}
+        pt={theme.spacing(10)}
+      >
+        {children}
+      </Box>
     </>
   );
 };
