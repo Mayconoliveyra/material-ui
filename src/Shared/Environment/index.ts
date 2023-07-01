@@ -18,4 +18,8 @@ export const Environment = {
    Url base de consulta dos dados dessa aplicação
    */
   URL_BASE: 'http://localhost:3333',
+
+  ENTERPRISE_LOGO:
+    'https://uploaddeimagens.com.br/images/004/528/141/full/athila_logo.png?1688217521',
+  ENTERPRISE_NAME: 'ATHILA GAMES',
 };

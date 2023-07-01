@@ -29,7 +29,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({ children }) 
   }, []);
 
   const theme = useMemo(() => {
-    if (themeName === 'light') return LightTheme;
+    if (themeName === 'dark') return LightTheme;
 
     return DarkTheme;
   }, [themeName]);
@@ -37,7 +37,7 @@ export const AppThemeProvider: React.FC<AppThemeProviderProps> = ({ children }) 
   return (
     <ThemeContext.Provider value={{ themeName, toggleTheme }}>
       <ThemeProvider theme={theme}>
-        <Box width="100vw" height="100vh" bgcolor={theme.palette.background.default}>
+        <Box height="100%" width="100%" bgcolor={theme.palette.background.default}>
           {children}
         </Box>
       </ThemeProvider>

@@ -4,6 +4,8 @@ import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { useDrawerContext } from '../../Contexts/DrawerContext';
 import { useAppThemeContext } from '../../Contexts/ThemeContext';
 
+import { Environment } from '../../Environment';
+
 import {
   Avatar,
   Box,
@@ -16,6 +18,7 @@ import {
   ListItemIcon,
   Icon,
   useMediaQuery,
+  Toolbar,
 } from '@mui/material';
 
 type MenuSideProps = {
@@ -62,26 +65,27 @@ export const MenuSide: React.FC<MenuSideProps> = ({ children }) => {
   return (
     <>
       <Drawer
+        sx={{ bottom: 50 }}
         open={isDrawerOpen}
-        variant={smDown ? 'temporary' : 'permanent'}
+        variant="temporary"
         onClose={toggleDrawerOpen}
       >
-        <Box display="flex" flexDirection="column" width={theme.spacing(28)} height="100vh">
-          <Box
-            width="100%"
-            height={theme.spacing(20)}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Avatar
-              src="https://uploaddeimagens.com.br/images/004/521/408/full/foto-perfil.jpg?1687815771"
-              sx={{
-                width: theme.spacing(12),
-                height: theme.spacing(12),
-              }}
-            />
-          </Box>
+        <Box height="100%" display="flex" flexDirection="column" width={theme.spacing(28)}>
+          <Toolbar sx={{ height: theme.spacing(10) }}>
+            <Box mr={2}>
+              <Avatar
+                variant="square"
+                alt={Environment.ENTERPRISE_NAME}
+                src={Environment.ENTERPRISE_LOGO}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  maxWidth: theme.spacing(7),
+                  maxHeight: theme.spacing(7),
+                }}
+              />
+            </Box>
+          </Toolbar>
 
           <Divider />
 
@@ -114,9 +118,7 @@ export const MenuSide: React.FC<MenuSideProps> = ({ children }) => {
         </Box>
       </Drawer>
 
-      <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
-        {children}
-      </Box>
+      <Box height="100vh">{children}</Box>
     </>
   );
 };

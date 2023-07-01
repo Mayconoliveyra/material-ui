@@ -23,6 +23,7 @@
   },
   "plugins": ["@typescript-eslint", "react", "react-hooks", "eslint-plugin-import-helpers"],
   "rules": {
+    "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "react/react-in-jsx-scope": "off",

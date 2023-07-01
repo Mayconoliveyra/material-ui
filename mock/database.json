@@ -181,26 +181,56 @@
       "id": 34
     }
   ],
-  "cities": [
+  "city": [
     {
       "id": 1,
       "city": "João Pessoa",
-      "uf": "PB"
+      "uf": "PI"
     },
     {
-      "id": 1,
+      "id": 2,
       "city": "Cabedelo",
-      "uf": "PB"
+      "uf": "SP"
     },
     {
-      "id": 1,
+      "id": 3,
       "city": "Rio de Janeiro",
-      "uf": "RJ"
+      "uf": "BA"
     },
     {
-      "id": 1,
+      "id": 4,
       "city": "São Paulo",
       "uf": "SP"
+    },
+    {
+      "city": "Salvador",
+      "uf": "GO",
+      "id": 5
+    },
+    {
+      "city": "Rio",
+      "uf": "SP",
+      "id": 6
+    },
+    {
+      "city": "fd",
+      "uf": "GO",
+      "id": 7
+    },
+    {
+      "city": "l",
+      "uf": "GO",
+      "id": 8
+    },
+    {
+      "city": "22",
+      "uf": "SP",
+      "id": 9
+    },
+    {
+      "city": "haha",
+      "uf": "GO",
+      "id": 10
     }
   ]
 }
