@@ -82,63 +82,58 @@ const TikTokIcon = createSvgIcon(
 const pages = ['Início', 'Notícias', 'Vídeos', 'Sobre', 'Ranking'];
 
 export const LayoutBasePag: React.FC<LayoutBasePagProps> = ({ cardInitial, children }) => {
-  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
   const { toggleDrawerOpen } = useDrawerContext();
 
   return (
-    <Box
-      /*   minHeight="100vh" */
-      overflow="hidden"
-      /*   sx={{ overflowY: 'auto', overflowX: 'hidden' }} */
-      display="flex"
-      flexDirection="column"
-    >
-      <Box display="flex" alignItems="center">
-        <AppBar position="static">
-          <Toolbar sx={{ height: theme.spacing(10) }}>
-            <Box mr={2}>
-              <Avatar
-                variant="square"
-                alt={Environment.ENTERPRISE_NAME}
-                src={Environment.ENTERPRISE_LOGO}
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  maxWidth: theme.spacing(7),
-                  maxHeight: theme.spacing(7),
-                }}
-              />
-            </Box>
+    <>
+      {/* CABEÇALHO */}
+      <AppBar position="fixed">
+        <Toolbar sx={{ height: theme.spacing(10) }}>
+          <Box mr={2}>
+            <Avatar
+              variant="square"
+              alt={Environment.ENTERPRISE_NAME}
+              src={Environment.ENTERPRISE_LOGO}
+              sx={{
+                width: '100%',
+                height: '100%',
+                maxWidth: theme.spacing(7),
+                maxHeight: theme.spacing(7),
+              }}
+            />
+          </Box>
 
-            <Box sx={{ display: { flexGrow: 1, xs: 'none', md: 'block' } }}>
-              {pages.map((item) => (
-                <Button size="large" color="inherit" variant="text" key={item}>
-                  {item}
-                </Button>
-              ))}
-            </Box>
+          <Box sx={{ display: { flexGrow: 1, xs: 'none', md: 'block' } }}>
+            {pages.map((item) => (
+              <Button size="large" color="inherit" variant="text" key={item}>
+                {item}
+              </Button>
+            ))}
+          </Box>
 
-            <Box flexGrow={1} display="flex" justifyContent="flex-end">
-              {mdDown ? (
-                <IconButton size="large" onClick={toggleDrawerOpen}>
-                  <Icon fontSize="large">menu</Icon>
-                </IconButton>
-              ) : (
-                <Button variant="contained" size="large" color="inherit">
-                  JOGAR
-                </Button>
-              )}
-            </Box>
-          </Toolbar>
-        </AppBar>
-      </Box>
+          <Box flexGrow={1} display="flex" justifyContent="flex-end">
+            {mdDown ? (
+              <IconButton size="large" onClick={toggleDrawerOpen}>
+                <Icon fontSize="large">menu</Icon>
+              </IconButton>
+            ) : (
+              <Button variant="contained" size="large" color="inherit">
+                JOGAR
+              </Button>
+            )}
+          </Box>
+        </Toolbar>
+      </AppBar>
 
+      {/* CARD INICIAL(IMAGEM) */}
       {cardInitial && <Box>{cardInitial}</Box>}
 
-      <Box>{children}</Box>
+      {/* CONTEÚDO DA PAGINA */}
+      <Box flex={1}>{children}</Box>
 
+      {/* RODAPÉ */}
       <Box
         display="flex"
         flexDirection="column"
@@ -205,22 +200,22 @@ export const LayoutBasePag: React.FC<LayoutBasePagProps> = ({ cardInitial, child
 
         <Box marginY={3} display="flex" flexDirection="row" gap={2}>
           <Link href="#" underline="none">
-            <Avatar>
+            <Avatar sx={{ width: 44, height: 44 }}>
               <InstagramIcon color="primary" />
             </Avatar>
           </Link>
           <Link href="#" underline="none">
-            <Avatar>
+            <Avatar sx={{ width: 44, height: 44 }}>
               <DiscordIcon color="primary" />
             </Avatar>
           </Link>
           <Link href="#" underline="none">
-            <Avatar>
+            <Avatar sx={{ width: 44, height: 44 }}>
               <YouTubeIcon color="primary" />
             </Avatar>
           </Link>
           <Link href="#" underline="none">
-            <Avatar>
+            <Avatar sx={{ width: 44, height: 44 }}>
               <TikTokIcon color="primary" />
             </Avatar>
           </Link>
@@ -232,6 +227,6 @@ export const LayoutBasePag: React.FC<LayoutBasePagProps> = ({ cardInitial, child
           </Typography>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 };
